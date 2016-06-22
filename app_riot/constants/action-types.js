@@ -1,0 +1,7 @@
+
+module.exports = {
+    SET_EXAMPLES: 'SET_EXAMPLES',
+    OPEN_MODAL: 'OPEN_MODAL',
+    CLOSE_MODAL: 'CLOSE_MODAL',
+    SET_PATH: 'SET_PATH',
+};

@@ -1,0 +1,77 @@
+<modal>
+    <div class="b-modal-background" onclick={triggerClose} if={show}></div>
+    <div id="{modalId}" class="b-modal noselect" if={show}>
+        <yield></yield>
+    </div>
+
+    <script>
+        var store = require('../store');
+        var actions = require('../actions/modal-actions');
+        var _ = require('lodash');
+        var $ = require('jquery');
+        var self = this;
+        self.show = false;
+        self.modalId = opts.modalId;
+                
+        open(){
+            self.show = true;
+        }
+        
+        close(){
+            self.show = false;
+        }
+        
+        triggerOpen(){
+            var event = actions.open(self.modalId);
+            store.dispatch(event);
+        }
+        
+        triggerClose(){
+            var event = actions.close(self.modalId);
+            store.dispatch(event);
+        }
+        
+        function onStateChange(previous, current) {
+            if (current.id === self.modalId) {
+                self.open();
+                self.update();
+            }
+            else if (previous && previous.id === self.modalId) {
+                self.close();
+                self.update();
+            }
+        }
+        
+        var unsubscribe = store.observe(function (state) {
+            return state.modal;
+        }, onStateChange);
+
+        this.on('unmount', function() {
+            unsubscribe();
+        });
+        
+        this.on('updated', function() {
+           adjustPosition();
+        });
+        
+        function adjustPosition() {
+            if (!self.show) {
+                return;
+            }
+            var modal = $('#' + self.modalId);
+            var popupHeight = modal.height();
+            if (popupHeight < 0) {
+                return;
+            }
+            var scroll = $(document).scrollTop();
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (popupHeight > windowHeight) {
+                modal.css('margin-top', scroll);
+            } else {
+                var targetOffset = (windowHeight - popupHeight) * 0.30;
+                modal.css('margin-top', targetOffset + scroll);
+            }
+        }
+    </script>
+</modal>

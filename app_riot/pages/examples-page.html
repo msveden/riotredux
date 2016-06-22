@@ -1,0 +1,44 @@
+<examples-page>
+    <show-something-modal modal-id="show-something"></show-something-modal>
+    <layout-app page="examples">
+        <h1>Examples</h1>
+        <p>This is the examples page</p>
+        <p>
+            <modal-button text="Open modal" modal-id="show-something"></modal-button>
+        </p>
+        <p>
+            <button onclick={parent.loadData}>Load example data from server</button>
+        </p>
+        <p>
+            <ul>
+                <li each={parent.examples}>{name}</li>
+            </ul>
+        </p>
+    </layout-app>
+
+    <script>
+        document.title = 'Examples';
+        var examplesService = require('../services/examples-service');
+        var store = require('../store');
+        var self = this;
+
+        loadData() {
+            examplesService.loadExamples();
+        }
+
+        function onStateChange(previous, current) {
+            self.examples = current;
+            self.update();
+        }
+        
+        var unsubscribe = store.observe(function (state) {
+            return state.examples;
+        }, onStateChange);
+
+        this.on('unmount', function() {
+            unsubscribe();
+        });
+
+
+    </script>
+</examples-page>

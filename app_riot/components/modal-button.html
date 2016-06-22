@@ -1,0 +1,18 @@
+<modal-button>
+
+    <button class="{opts.css}" onclick={open}>{opts.text}</button>
+
+    <script>
+        
+        var store = require('../store');
+        var actions = require('../actions/modal-actions');
+        var self = this;
+        
+        open() {
+            var event = actions.open(opts.modalId);
+            store.dispatch(event);
+        }
+        
+    </script>
+
+</modal-button>

@@ -1,0 +1,29 @@
+<show-something>
+    <div class="b-modal-header">
+        <h4 class="b-modal-title">Show something</h4>
+    </div>
+    <div class="row b-modal-body">
+        Here is something.
+    </div>
+    <div class="b-modal-footer">
+        <button onclick={save} class="waves-effect waves-green btn-flat">Save</button>
+        <button onclick={closeModal} class="waves-effect waves-green btn-flat">Cancel</button>
+    </div>
+    
+    <script>
+        var store = require('../store');
+        var modalActions = require('../actions/modal-actions');
+        var self = this;
+        
+        save(evt) {
+            self.closeModal();
+        }
+        
+        closeModal() {
+            var event = modalActions.close(opts.modalId);
+            store.dispatch(event);
+        }
+        
+        
+    </script>
+</show-something>

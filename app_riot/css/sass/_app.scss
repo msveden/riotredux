@@ -1,0 +1,9 @@
+.app-logo {
+    width: 10rem;
+    margin-top: 0.5rem;
+    @include min($break-l) {
+        width: 10rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}

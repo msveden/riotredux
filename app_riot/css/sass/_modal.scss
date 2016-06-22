@@ -1,0 +1,63 @@
+.b-modal-background {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    // @include transition(opacity 0.25s ease);
+}
+
+.b-modal {    
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity;
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+    z-index: 1001;
+    
+    // max-height: 70%;
+    width: 97%;
+    
+    @include min($break-m) {
+        width: 400px;
+    }
+}
+
+.b-modal-header {
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem;
+    @include min($break-m) {
+        padding: 1rem;
+    }
+}
+
+.b-modal-title {
+    margin: 0;
+    padding: 0;
+}
+
+.b-modal-footer {
+    display: block;
+    float: right;
+    padding: 0.5rem;
+    @include min($break-m) {
+        padding: 1rem;
+    }
+}
+
+.b-modal-body {
+    padding: 1rem;
+}
+
+body.b-modal-open {
+    overflow: hidden;
+}

@@ -1,0 +1,20 @@
+
+body {
+    background-color: #f4f7f9;
+    overflow-x: hidden;
+}
+
+// http://stackoverflow.com/a/30523009
+// "For iOS, you can avoid zooming of input elements by simply allocating a font size to them that's 
+// considered sufficient by the OS (>=16px), thus avoiding the need to zoom,."
+input[type=text], 
+input[type=password], 
+input[type=email], 
+input[type=url], input[type=time], 
+input[type=date], 
+input[type=datetime-local], 
+input[type=tel], 
+input[type=number], 
+input[type=search] {
+    font-size: 16px;
+}

@@ -1,0 +1,38 @@
+// usage: .box { @include border-radius(10px); }
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin min($minWidth) {
+    @media all and (min-width: $minWidth) { @content; }
+}
+
+@mixin max($maxWidth) {
+    @media all and (max-width: $maxWidth) { @content; }
+}
+
+// usage: @include transform(rotate(-90deg))
+@mixin transform($what) {
+  -webkit-transform: $what;
+     -moz-transform: $what;
+      -ms-transform: $what;
+       -o-transform: $what;
+          transform: $what;
+}
+
+// usage: @include transform(rotate(-90deg))
+@mixin transition($what) {
+  -webkit-transition: $what;
+     -moz-transition: $what;
+      -ms-transition: $what;
+       -o-transition: $what;
+          transition: $what;
+}
+
+// usage: @include vertical;
+@mixin vertical() {
+    @include transform(rotate(-90deg));
+}

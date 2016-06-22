@@ -1,0 +1,15 @@
+.page-content {
+    background-color: #fff;
+    clear: both;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    padding: 1rem 0.5rem;
+    
+    @include min($break-m) {
+        padding: 1rem 1rem; 
+    }
+    
+    @include min($break-l) {
+        padding: 1rem 2rem; 
+    }
+}

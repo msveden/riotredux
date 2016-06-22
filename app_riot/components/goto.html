@@ -1,0 +1,10 @@
+<goto>
+    <a class="{opts.style} {opts.css} link" onclick={ go }><yield /></a>
+    <script>
+        var router = require('../router');
+        var self = this;
+        go() {
+            router.goTo(self.opts.page, self.opts.p1, self.opts.p2, self.opts.p3);
+        }
+    </script>
+</goto>
