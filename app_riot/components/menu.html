@@ -1,11 +1,11 @@
 <menu>
     <nav>
-        <goto id="logo-container" page="home" style="logo-container">Start page</goto>
+        <goto id="logo-container" page="home" style="pure-menu-heading pure-menu-link">Start page</goto>
     </nav>
-    <nav class="top-menu-container">
-        <ul class="right top-menu break">
-            <li class="top-menu-item {active: opts.current == 'examples'}"><goto page="examples">Examples</goto></li>
-            <li class="top-menu-item {active: opts.current == 'contact'}"><goto page="contact">Contact</goto></li>
+    <nav class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item {pure-menu-selected: opts.current == 'examples'}"><goto page="examples" style="pure-menu-link">Examples</goto></li>
+            <li class="pure-menu-item {pure-menu-selected: opts.current == 'contact'}"><goto page="contact" style="pure-menu-link">Contact</goto></li>
         </ul>
     </nav>
 </menu>
